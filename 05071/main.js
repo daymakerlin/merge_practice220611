@@ -14,7 +14,8 @@ $(function(){
     ];
     ctx = $("#myCanvas")[0].getContext("2d");
     imgMain = new Image();
-    imgMain.src = "images/spriteSheet.png";
+    // 改路徑(人的圖才會出現)
+    imgMain.src = "05071/images/spriteSheet.png";
     currentImgMain = {
     "x":0,
     "y":0
@@ -24,9 +25,11 @@ $(function(){
     ctx.drawImage(imgMain, 0,0,80,130,currentImgMain.x,currentImgMain.y,gridLength,gridLength);
     };
     imgMountain = new Image();
-    imgMountain.src = "images/material.png";
+    // 改路徑(人的圖才會出現)
+    imgMountain.src = "05071/images/material.png";
     imgEnemy = new Image();
-    imgEnemy.src = "images/Enemy.png";
+    // 改路徑(人的圖才會出現)
+    imgEnemy.src = "05071/images/Enemy.png";
     imgMountain.onload =function(){
         imgEnemy.onload = function(){
             for(var x in mapArray){
@@ -58,7 +61,8 @@ $(document).on("keydown", function (event) {
 
     event.preventDefault();
 
-    switch(event.code){
+    //event.key：鍵盤觸發語法才會監控鍵盤->人才能動
+    switch(event.key){
         case "ArrowLeft":
             targetImg.x = currentImgMain.x -gridLength;
             targetImg.y = currentImgMain.y;
